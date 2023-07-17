@@ -16,12 +16,12 @@
                         type="text" 
                         placeholder="Nama Depan">
                       <div *ngIf="f['nama_depan'].touched && f['nama_depan'].invalid" class="alert alert-danger">
-                        <div *ngIf="f['nama_depan'].errors && f['nama_depan'].errors['required']">nama_depan is required.</div>
+                        <div *ngIf="f['nama_depan'].errors && f['nama_depan'].errors['required']" class="text-red-600">Nama Depan is required.</div>
                       </div>
                 </div>
                 <div class="flex-grow">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nama_belakang">
-                        Nama Belakang
+                        Nama Belakang <span class="font-normal">(Optional)</span>
                       </label>
                       <input 
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
@@ -42,19 +42,24 @@
               id="id" 
               type="text" 
               placeholder="Nomor Induk Mahasiswa">
+            <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
+              <div *ngIf="f['id'].errors && f['id'].errors['required']" class="text-red-600">NIM is required.</div>
+            </div>
           </div>
           <div class="mb-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="tanggal_lahir">
                 Tanggal Lahir <span class="font-normal">(yyyy-mm-dd)</span>
                 </label>
                 <input 
-                  class="shadow appearance-none border rounded w-full py-2 px-3 mb-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                   formControlName="tanggal_lahir"
                   id="tanggal_lahir" 
                   type="text" 
                   placeholder="Tanggal Lahir">
-
-          <div class="flex items-center justify-between">
+                <div *ngIf="f['tanggal_lahir'].touched && f['tanggal_lahir'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['tanggal_lahir'].errors && f['tanggal_lahir'].errors['required']" class="text-red-600">Tanggal Lahir is required.</div>
+                </div>
+          <div class="flex items-center justify-between pt-6">
             <button 
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
               type="submit"
