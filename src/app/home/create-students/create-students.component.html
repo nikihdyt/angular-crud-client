@@ -1,0 +1,70 @@
+<div class="w-full max-w-2xl mx-auto pt-6">
+    <div class="mb-3">
+        <form 
+          [formGroup]="createForm" (ngSubmit)="submit()"
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8">
+          <div class="mb-4">
+            <div class="flex gap-3">
+                <div class="flex-grow">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nama_depan">
+                        Nama Depan
+                      </label>
+                      <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        formControlName="nama_depan"
+                        id="nama_depan"
+                        type="text" 
+                        placeholder="Nama Depan">
+                      <div *ngIf="f['nama_depan'].touched && f['nama_depan'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['nama_depan'].errors && f['nama_depan'].errors['required']">nama_depan is required.</div>
+                      </div>
+                </div>
+                <div class="flex-grow">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nama_belakang">
+                        Nama Belakang
+                      </label>
+                      <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        formControlName="nama_belakang"
+                        id="nama_belakang" 
+                        type="text" 
+                        placeholder="Nama Belakang">
+                </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id">
+              ID (NIM)
+            </label>
+            <input 
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+              formControlName="id"
+              id="id" 
+              type="text" 
+              placeholder="Nomor Induk Mahasiswa">
+          </div>
+          <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="tanggal_lahir">
+                Tanggal Lahir <span class="font-normal">(yyyy-mm-dd)</span>
+                </label>
+                <input 
+                  class="shadow appearance-none border rounded w-full py-2 px-3 mb-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                  formControlName="tanggal_lahir"
+                  id="tanggal_lahir" 
+                  type="text" 
+                  placeholder="Tanggal Lahir">
+
+          <div class="flex items-center justify-between">
+            <button 
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+              type="submit"
+              [disabled]="!createForm.valid"  >
+              Create Student
+            </button>
+          </div>
+
+          </div>
+        </form>
+    </div>
+    <a [routerLink]="['']" routerLinkActive="router-link-active" class="text-md ml-3 text-white font-bold">Back to Homepage</a>
+</div>

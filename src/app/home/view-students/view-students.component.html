@@ -1,0 +1,48 @@
+
+<button href="#" routerLink="/create" class="py-2 px-4 bg-[#F4F2DE] rounded-md mb-2 ">Create New Post</button>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-white ">
+        <thead class="text-xs text-white uppercase bg-[#1D5D9B] ">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    NIM
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nama
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Usia
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Delete</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+                *ngFor="let student of students"
+                class="bg-[#C5DFF8] border-b hover:bg-[#75C2F6] text-black ">
+                <th scope="row" class="px-6 py-4">
+                    {{ student.nim }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ student.nama_lengkap }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ student.usia }} tahun
+                </td>
+                <td class="px-3 py-4 text-right">
+                    <a href="#" [routerLink]="['/update/', student.nim]" class="py-1 px-2 bg-[#FBEEAC] rounded-md">Edit</a>
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <button type="button" (click)="deleteStudent(student.nim)" class="w-fit py-1 px-2 bg-red-400 rounded-md">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
